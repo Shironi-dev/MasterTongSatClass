@@ -35,6 +35,7 @@
   </thead>
   <tbody>
     <?php 
+        error_reporting(0);
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -42,13 +43,13 @@
         if (isset($_GET["Cel"])) {
             $conn = mysqli_connect($servername , $username , $password , $dbname);
             if(!($conn)) {
-                die ("connection failed : ".mysqli_connec_error);
+                echo '<div class="alert alert-danger" role="alert">'.'Connection Error!'.'</div>';
             }
             else {
                 echo '<div class="alert alert-success" role="alert">'.'Connection Success!'.'</div>';
             }
             $i = 0;
-            $sql = 'select * from car_sale where car = "'.$_GET["Cel"].'"';
+            $sql = "select * from car_sale where car LIKE '%$_GET[Cel]%' ";
             $exeq = mysqli_query($conn , $sql);
             while ($row = mysqli_fetch_assoc($exeq)) {
                 $i+=1;
