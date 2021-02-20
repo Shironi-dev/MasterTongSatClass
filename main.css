@@ -1,0 +1,41 @@
+body , html {
+    background-color: #FFFFFF;
+    animation : animate 1s infinite;
+}
+h1{
+    font-size:200px;
+    color: red;
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-0%);
+    animation: animate-inverse 1s infinite;
+}
+@keyframes animate {
+    0% {
+        background-color: black;
+    }
+    50% {
+        background-color: black;
+    }
+    51% {
+        background-color: white;
+    }
+    100%{
+        background-color: white;
+    }
+}
+@keyframes animate-inverse {
+    0% {
+        color: white;
+    }
+    50% {
+        color: white;
+    }
+    51% {
+        color: black;
+    }
+    100%{
+        color: black;
+    }
+}
